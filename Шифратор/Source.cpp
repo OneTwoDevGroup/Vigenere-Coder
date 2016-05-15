@@ -25,8 +25,8 @@ int main()
 	char savealphabet[N] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 	*/
 
-	unsigned char alphabet[N] = { 'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','×','Ø','Ù','Ý','É','Û','Ü','Þ','ß' };
-	unsigned char savealphabet[N]= { 'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','×','Ø','Ù','Ý','É','Û','Ü','Þ','ß' };
+	unsigned char alphabet[N] = { 'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','×','Ø','Ù','Ú','Û','Ü','Ý','Þ','ß' };
+	unsigned char savealphabet[N]= { 'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','×','Ø','Ù','Ú','Û','Ü','Ý','Þ','ß' };
 	unsigned char d[256][256];
 	unsigned char newalphabet[N];
 	FILE* out = fopen("out.txt", "w");
@@ -146,10 +146,17 @@ int main()
 		fprintf(out, "%s\n", code);
 
 	}
+	fputc(' ', out);
+	fputc(' ', out);
+	for (i = 0; i < N;i++)
+		fputc(savealphabet[i], out);
+	fputc('\n', out);
 	
 	for (i = 0; i < N; i++)
 	{
 		fputc('\n', out);
+		fputc(savealphabet[i], out);
+		fputc(' ', out);
 		for (j = 0; j < N; j++)
 		{
 			fputc(newalphabet[(i + j) % N], out);
